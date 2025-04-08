@@ -3,12 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>KGP Route Recommender</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-/>
-  <style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <style> /*we create the style part */ 
     body {
       font-family: 'Segoe UI', sans-serif;
       padding: 2rem;
@@ -27,7 +23,7 @@
     }
     .subheading-text {
       font-size: 16px;
-      color: #0d3b66; /* Rich navy blue */
+      color: #0d3b66;
       margin: 6px 0 20px 0;
       max-width: 700px;
       line-height: 1.6;
@@ -53,7 +49,7 @@
     .tooltip-icon .tooltip-text {
       visibility: hidden;
       width: 220px;
-      background-color: #ffffff;
+      background-color: #a1bceb;
       color: #333;
       text-align: left;
       border-radius: 8px;
@@ -66,14 +62,14 @@
       transform: translateX(-50%);
       opacity: 0;
       transition: opacity 0.3s;
-      font-size: 12px;
+      font-size: 14px;
+      font-weight: bold;
     }
 
     .tooltip-icon:hover .tooltip-text {
       visibility: visible;
       opacity: 1;
     }
-
 
     select, input[type=range] {
       width: 100%;
@@ -132,7 +128,8 @@
     }
   </style>
 </head>
-<body>
+
+<body> 
   <div class="container">
     <div class="transport-anim"></div>
     <h1 style="color: #022057; font-family: 'Arial'; font-weight: bold;">
@@ -226,7 +223,7 @@
     <div id="note-message" style="margin-top: 10px; font-weight: bold; color: #007bff;"></div>
     <canvas id="chart" height="150"></canvas>
   </div>
-  <script src="config.js"></script>
+  <!--Now we start the javascript part-->
   <script>
     function updateSliderValue(id) {
         document.getElementById(`${id}-value`).textContent = document.getElementById(id).value;
@@ -282,6 +279,7 @@
             <i class="fas fa-medal"></i> Rank: ${route['Rank']}</p><hr>
           `;
         });
+        //Google maps couldnt respond to some hall names, so we change them to something convenient
         const hallNameFixes = {
         'SNIG': 'SN Hall Nescafe, IIT Kharagpur',
         'Nehru': 'Nehru Hall of Residence, IIT Kharagpur',
@@ -301,7 +299,7 @@
         mapFrame.allowFullscreen = true;
         mapFrame.src = `https://www.google.com/maps/embed/v1/directions?key=${GOOGLE_MAPS_API}&origin=${encodeURIComponent(fixedStart)},IITKharagpur&destination=${encodeURIComponent(fixedDestination)},IITKharagpur&mode=walking`;
         outputDiv.appendChild(mapFrame);
-  
+        
       } else {
         outputDiv.innerHTML = `<p style="color: red;">${data.error || 'Something went wrong.'}</p>`;
       }

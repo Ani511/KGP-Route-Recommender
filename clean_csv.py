@@ -1,6 +1,6 @@
 import pandas as pd
 
-# Load your dataset
+# Load dataset
 df = pd.read_csv('KGP_Topsis_Uncleaned.csv')
 
 # Strip leading/trailing whitespaces from all string columns
