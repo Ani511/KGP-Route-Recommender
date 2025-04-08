@@ -135,7 +135,10 @@
 <body>
   <div class="container">
     <div class="transport-anim"></div>
-    <h1><option value="" disabled selected style="color: #022057; font-family: 'Arial'; font-weight: bold;">TOPSIS Route Finder (KGP Edition)</option></h1>
+    <h1 style="color: #022057; font-family: 'Arial'; font-weight: bold;">
+      TOPSIS Route Finder (KGP Edition)
+    </h1>
+    
     <p class="subheading-text">
       Rank your routes based on distance, time, safety, traffic, and more using the TOPSIS algorithm. Choose your hall, customize preferences, and find your best way!
     </p>
@@ -168,15 +171,16 @@
     </select>
 
     <h3><i class="fas fa-balance-scale"></i> Assign Importance (Weights):</h3>
-    <label><i class="fas fa-shield-alt"></i> Safety <span class="tooltip-icon">
+    <label><i class="fas fa-shield-alt"></i> Safety <span id="safety-value">0.3</span><span class="tooltip-icon">
       <i class="fas fa-info-circle"></i>
       <span class="tooltip-text">
         How well-lit, busy or risky the route is (stray dogs, unsafe crossings, etc.)
       </span>
     </span></label>
-    <input type="range" id="safety" min="0" max="1" step="0.1" value="0.3">
+    <input type="range" id="safety" min="0" max="1" step="0.1" value="0.3" oninput="updateSliderValue('safety')">
 
-    <label for="time"><i class="fas fa-stopwatch"></i> Time
+
+    <label for="time"><i class="fas fa-stopwatch"></i> Time <span id="time-value">0.2</span>
       <span class="tooltip-icon">
         <i class="fas fa-info-circle"></i>
         <span class="tooltip-text">
@@ -184,9 +188,9 @@
         </span>
       </span>
     </label>
-    <input type="range" id="time" min="0" max="1" step="0.1" value="0.2">
+    <input type="range" id="time" min="0" max="1" step="0.1" value="0.2" oninput="updateSliderValue('time')">
     
-    <label for="distance"><i class="fas fa-ruler-horizontal"></i> Distance
+    <label for="distance"><i class="fas fa-ruler-horizontal"></i> Distance <span id="distance-value">0.2</span>
       <span class="tooltip-icon">
         <i class="fas fa-info-circle"></i>
         <span class="tooltip-text">
@@ -194,9 +198,9 @@
         </span>
       </span>
     </label>
-    <input type="range" id="distance" min="0" max="1" step="0.1" value="0.2">
+    <input type="range" id="distance" min="0" max="1" step="0.1" value="0.2" oninput="updateSliderValue('distance')">
     
-    <label for="traffic"><i class="fas fa-traffic-light"></i> Traffic
+    <label for="traffic"><i class="fas fa-traffic-light"></i> Traffic <span id="traffic-value">0.1</span>
       <span class="tooltip-icon">
         <i class="fas fa-info-circle"></i>
         <span class="tooltip-text">
@@ -204,9 +208,9 @@
         </span>
       </span>
     </label>
-    <input type="range" id="traffic" min="0" max="1" step="0.1" value="0.1">
+    <input type="range" id="traffic" min="0" max="1" step="0.1" value="0.1" oninput="updateSliderValue('traffic')">
     
-    <label for="road_quality"><i class="fas fa-road"></i> Road Quality
+    <label for="road_quality"><i class="fas fa-road"></i> Road Quality <span id="road_quality-value">0.2</span>
       <span class="tooltip-icon">
         <i class="fas fa-info-circle"></i>
         <span class="tooltip-text">
@@ -214,7 +218,7 @@
         </span>
       </span>
     </label>
-    <input type="range" id="road_quality" min="0" max="1" step="0.1" value="0.2">
+    <input type="range" id="road_quality" min="0" max="1" step="0.1" value="0.2" oninput="updateSliderValue('road_quality')">
 
     <button onclick="getBestRoute()">Get Best Route</button>
 
@@ -222,7 +226,13 @@
     <div id="note-message" style="margin-top: 10px; font-weight: bold; color: #007bff;"></div>
     <canvas id="chart" height="150"></canvas>
   </div>
-
+  <script src="config.js"></script>
+  <script>
+    function updateSliderValue(id) {
+        document.getElementById(`${id}-value`).textContent = document.getElementById(id).value;
+    }
+    ['safety', 'time', 'distance', 'traffic', 'road_quality'].forEach(updateSliderValue);
+  </script>
   <script>
     async function getBestRoute() {
       const from_hall = document.getElementById('from_hall').value;
@@ -251,7 +261,6 @@
           weights: weights
         })
       });
-  
       const data = await response.json();
       const outputDiv = document.getElementById('result');
       const noteDiv = document.getElementById('note-message'); // Reference to the note div
@@ -290,7 +299,7 @@
         mapFrame.style.borderRadius = '16px';
         mapFrame.loading = 'lazy';
         mapFrame.allowFullscreen = true;
-        mapFrame.src = `https://www.google.com/maps/embed/v1/directions?key=AIzaSyAWL0h3aFRHDr7RE7N52F7jEx7u36rDglo&origin=${encodeURIComponent(fixedStart)}, IIT Kharagpur&destination=${encodeURIComponent(fixedDestination)}, IIT Kharagpur&mode=walking`;
+        mapFrame.src = `https://www.google.com/maps/embed/v1/directions?key=${GOOGLE_MAPS_API}&origin=${encodeURIComponent(fixedStart)},IITKharagpur&destination=${encodeURIComponent(fixedDestination)},IITKharagpur&mode=walking`;
         outputDiv.appendChild(mapFrame);
   
       } else {
