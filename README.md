@@ -48,12 +48,18 @@ A transportation decision-making web app built for IIT Kharagpur, ranking routes
 ---
 
 🧠 How It Works
-🧍 User selects a starting point, destination, and adjusts weights for factors like time, cost, safety, etc.
-🖥️ Frontend sends this input to the Flask backend.
-📊 Backend uses a custom dataset (not real-time Maps data) containing route options and their attributes.
-🧮 The TOPSIS algorithm (topsis.py) processes the data using the user's weights and ranks the routes.
-🚀 Backend sends the ranked results to the frontend.
-🗺️ Google Maps API is used for visualizing the selected route(s) interactively on the map.
+1.🧍 User selects a starting point, destination, and adjusts weights for factors like time, cost, safety, etc.
+
+2.🖥️ Frontend sends this input to the Flask backend.
+
+3.📊 Backend uses the custom dataset containing route options and their attributes.
+
+4.🧮 The TOPSIS algorithm (topsis.py) processes the data using the user's weights and ranks the routes.
+
+5.🚀 Backend sends the ranked results to the frontend.
+
+6.🗺️ Google Maps API is used for visualizing the selected route(s) interactively on the map.
+
 ---
 
 ## 📈 Example Use-Case
