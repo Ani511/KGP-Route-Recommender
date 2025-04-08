@@ -47,7 +47,7 @@ A transportation decision-making web app built for IIT Kharagpur, ranking routes
 
 ---
 
-🧠 How It Works
+## 🧠 How It works
 1.🧍 User selects a starting point, destination, and adjusts weights for factors like time, cost, safety, etc.
 
 2.🖥️ Frontend sends this input to the Flask backend.
