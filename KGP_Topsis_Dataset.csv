@@ -1,0 +1,101 @@
+From Hall,Destination,Route,Safety (1-5),Distance (km),Time (min),Traffic (1-10),Road Quality (1-5)
+Azad,Nalanda Complex, via Ardeshir Dalal Ave,4,2.5,6,8,4
+Azad,Nalanda Complex, via Nalini Ranjan Sarkar Ave,3,3.1,8,4,3
+Azad,Main Building, via Scholar's Ave,3,1.6,5,8,4
+Azad,Main Building, via Nalini Ranjan Sarkar Ave,4,1.7,5,5,3
+Azad,Tech Market, via Tech Market Road,2.5,0.85,3,4,4
+Azad,Tech Market, via School Road,3,0.9,3,3,4
+Azad,Tech Market, via Schhol road and Nursery Road,3,0.75,3,2,4
+Azad,Gymkhana, via Scholar's Ave,4,0.85,3,5,5
+LBS,Nalanda Complex, via Ardeshir Dalal Ave,4.5,2.8,7,8,5
+LBS,Nalanda Complex,via Scholar's Ave,4,2.9,9,7.5,4.5
+LBS,Main Building, via Scholar's Ave,4,1.5,5,7.5,4.5
+LBS,Main Building, via Nalini Ranjan Sarkar Ave,3,1.9,6,5,3
+LBS,Tech Market, via Tech Market Road,5,1.1,4,4,4
+LBS,Gymkhana, via Scholar's Ave,4,0.7,3,7.5,4.5
+RP,Gymkhana, via Scholar's Ave,4,0.75,2,7,4.5
+RP,Nalanda Complex, via Ardeshir Dalal Ave,4,1.9,5,8.5,4
+RP,Nalanda Complex, via New Bitumen road and Ardeshir Dalal Ave,5,1.8,6,5,5
+RP,Nalanda Complex,"via New Bitumen road, IIT Main road and Ardeshir Dalal Ave",4.5,1.8,6,5,4.5
+RP,Tech Market, via Scholar's Ave,4,1.5,4,7,4.5
+RP,Tech Market, via Nalini Ranjan Sarkar Ave,4.5,1.5,4,5,4
+RP,Main Building, via New Bitumen Road,3,0.35,2,8,3.5
+MMM,Gymkhana, via Malviya Marg,3.5,0.45,1,4,3
+MMM,Nalanda Complex, via Ardeshir Dalal Ave,4.5,2.3,6,7.5,4
+MMM,Nalanda Complex, via Scholar's Ave,4,2.5,7,8,4.5
+MMM,Tech Market, via Scholar's Ave,4,1.1,3,7.5,4
+MMM,Main Building, via Scholar's Ave,4,1,3,7.5,4
+Patel,Gymkhana, via PAN loop and Scholar's Ave,2.5,0.4,2,7,4
+Patel,Nalanda Complex, via Nalini Ranjan Sarkar Ave and Ardeshir Dalal Ave,3.5,2.4,6,6,2.5
+Patel,Nalanda Complex, via Scholar's Ave,4.5,2.6,7,7.5,4.5
+Patel,Tech Market," via PAN loop, Scholar's Ave and Tech Market Road",3.5,0.7,2,6,4
+Patel,Main Building, via Scholar's Ave,4,1.1,2,7,4
+RK,Gymkhana, via Scholar's Ave,4.5,0.6,2,7,4
+RK,Nalanda Complex, via Ardeshir Dalal Ave,4.5,2.2,5,7.5,3.5
+RK,Nalanda Complex, via Scholar's Ave and Ardeshir Dalal Ave,4,2,6,8,4
+RK,Nalanda Complex," via New Bitumen Road, Scholar's Ave and Ardeshir Dalal Ave",4,2,6,7,4
+RK,Tech Market, via Scholar's Ave,3.5,1.5,4,5,2.5
+RK,Tech Market, via Nalini Ranjan Sarkar Ave,4,1.8,5,7,4
+RK,Main Building, via Scholar's Ave,4,0.6,2,6,3.5
+Nehru,Gymkhana, via PAN loop and Scholar's Ave,2.5,0.5,2,6,4
+Nehru,Nalanda Complex, via Ardeshir Dalal Ave,3,2.5,7,8,3
+Nehru,Nalanda Complex, via Scholar's Ave,4,2.7,8,7,4.5
+Nehru,Tech Market," via PAN loop, Scholar's Ave and Tech Market Road",3.5,0.85,3,6,3.5
+Nehru,Tech Market, via Tech Market Road,4,0.85,3,5,4
+Nehru,Tech Market, via Schhol road,4,1.1,4,4,4.5
+Nehru,Main Building, via PAN loop and Scholar's Ave,4,1.3,5,8,5
+Nehru,Main Building, via Nalini Ranjan Sarkar Ave,3,1.6,6,6,3
+SNIG,Gymkhana, via Scholar's Ave,3,0.5,1,7.5,3.5
+SNIG,Nalanda Complex, via Ardeshir Dalal Ave,5,1.8,4,8,4.5
+SNIG,Nalanda Complex," via Scholar's Ave, turn right from EE Dept and Ardeshir Dalal Ave",4.5,1.7,5,6,5
+SNIG,Nalanda Complex," via Scholar's Ave, Nehru Mueseum and Ardeshir Dalal Ave",4,1.7,5,7,4
+SNIG,Tech Market, via Scholar's Ave,3,1.2,3,6,3
+SNIG,Tech Market, via Nalini Ranjan Sarkar Ave,4.5,1.2,4,7,4.5
+SNIG,Main Building, via Scholar's Ave,5,0.29,1,7.5,5
+SNVH,Gymkhana, via Scholar's Ave,2.5,0.45,2,4,2
+SNVH,Nalanda Complex, via Ardeshir Dalal Ave,4,1.6,4,8,3.5
+SNVH,Tech Market, via Nalini Ranjan Sarkar Ave and Tech Market Road,4,0.7,2,7,4
+SNVH,Main Building, via Nalini Ranjan Sarkar Ave and IIT Main Road,4,0.7,2,7.5,5
+MT,Main Building, via IIT Main road,4,0.6,2,7.5,5
+MT,Nalanda Complex, via Ardeshir Dalal Ave,4,1.5,3,8,3.5
+MT,Tech Market, via Nalini Ranjan Sarkar Ave and Tech Market Road,4,0.8,2,7,4
+MT,Gymkhana, via Nalini Ranjan Sarkar Ave,2.5,0.55,2,4,2
+MS,Gymkhana, via Scholar's Ave and road beside JCB hall,4,0.45,1,6,4
+MS,Gymkhana, via Scholar's Ave and road beside SAM hall,4.5,0.55,2,5,4.5
+MS,Nalanda Complex, via Ardeshir Dalal Ave,4,2.2,6,8,3.5
+MS,Nalanda Complex, via Nalini Ranjan Sarkar Ave and Ardeshir Dalal Ave,2.5,2.3,6,7,2
+MS,Nalanda Complex, via IIT Main road and Ardeshir Dalal Ave,4.5,2.3,6,9,4
+MS,Tech Market, via Scholar's Ave,2.5,1.2,3,5,2
+MS,Main Building, via New Bitumen Road,3,0.65,3,6,4
+MS,Main Building, via Scholar's Ave,3.5,0.7,3,7,4
+VS,Gymkhana, via Scholar's Ave,4,0.3,1,5,4.5
+VS,Nalanda Complex, via Ardeshir Dalal Ave,4.5,2.2,5,8,4
+VS,Nalanda Complex, via Scholar's Ave,4,2.1,6,7.5,4.5
+VS,Nalanda Complex, via Scholar's Ave and Ardeshir Dalal Ave,3.5,2.1,6,8,3.5
+VS,Tech Market, via Scholar's Ave,2.5,1,3,4,2
+VS,Main Building, via Scholar's Ave,4,0.65,2,9,5
+JCB,Gymkhana, via Malviya Marg,4.5,0.4,1,5.5,4
+JCB,Nalanda Complex, via Ardeshir Dalal Ave,3.5,2.3,6,8,3.5
+JCB,Nalanda Complex, via Scholar's Ave,4,2.4,7,7,3.5
+JCB,Tech Market, via Scholar's Ave,2.5,1.1,3,4,2
+JCB,Tech Market, via Nalini Ranjan Sarkar Ave,3.5,1.3,4,4,4
+JCB,Main Building, via Scholar's Ave,4,1,3,9,5
+HJB,Gymkhana, via Scholar's Ave,4,0.089,1,3,5
+HJB,Nalanda Complex, via Scholar's Ave,3.5,2.3,6,6,4.5
+HJB,Nalanda Complex, via Ardeshir Dalal Ave ,4,2.1,5,7,4
+HJB,Nalanda Complex, via Ardeshir Dalal Ave and Scholar's Ave,3,2.4,6,8,4
+HJB,Tech Market, via Scholar's Ave and Tech Market Road,2.5,0.65,2,4,2
+HJB,Main Building, via Scholar's Ave,4,0.85,3,7,4
+LLR,Gymkhana, via Scholar's Ave,4.5,0.35,1,5,4
+LLR,Nalanda Complex, via Ardeshir Dalal Ave ,4,2.2,6,8,3.5
+LLR,Nalanda Complex, via Scholar's Ave,4.5,2.5,6,7,4
+LLR,Nalanda Complex, via Ardeshir Dalal Ave and Scholar's Ave,4.5,2.4,7,8,3
+LLR,Tech Market, via Scholar's Ave and Tech Market Road,3.5,1,3,5,2.5
+LLR,Main Building, via Scholar's Ave,4,0.95,3,7,4
+BCR,Gymkhana, via Scholar's Ave,4,0.55,1,6,4
+BCR,Nalanda Complex, via Ardeshir Dalal Ave,3.5,1.8,4,8,3
+BCR,Nalanda Complex," via Scholar's Ave, turn right from EE Dept and Ardeshir Dalal Ave",3.5,1.7,5,6,4
+BCR,Nalanda Complex," via Scholar's Ave, Nehru Mueseum and Ardeshir Dalal Ave",3,1.6,5,7,3.5
+BCR,Tech Market, via Scholar's Ave,3.5,1.2,3,5,2.5
+BCR,Tech Market, via Nalini Ranjan Sarkar Ave,4,1.4,4,6,3.5
+BCR,Main Building, via Scholar's Ave,4,0.23,1,7,4

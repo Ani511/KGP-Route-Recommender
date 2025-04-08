@@ -1,0 +1,22 @@
+All Halls:
+1. RK
+2. RP
+3. Patel
+4. Azad
+5. Nehru
+6. SNIG
+7. SNVH
+8. MT
+9. MS
+10. VS
+11. JCB
+12. HJB
+13. BCR
+14. MMM
+15. LBS
+16. LLR
+
+Destinations:
+1. Nalanda
+2. Main Building
+3. Gymkhana

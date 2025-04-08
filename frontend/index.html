@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>KGP Route Recommender</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+/>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 2rem;
+      background: linear-gradient(to bottom right, #2c84d7, #e6f0ff);
+      color: #333;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      position: relative;
+    }
+    .subheading-text {
+      font-size: 16px;
+      color: #0d3b66; /* Rich navy blue */
+      margin: 6px 0 20px 0;
+      max-width: 700px;
+      line-height: 1.6;
+      font-weight: 500;
+      font-style: normal;
+    }
+    .subheading-text {
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+     @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .tooltip-icon {
+      position: relative;
+      display: inline-block;
+      margin-left: 6px;
+      cursor: pointer;
+      color: #0d3b66;
+    }
+
+    .tooltip-icon .tooltip-text {
+      visibility: hidden;
+      width: 220px;
+      background-color: #ffffff;
+      color: #333;
+      text-align: left;
+      border-radius: 8px;
+      padding: 8px 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      position: absolute;
+      z-index: 100;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 12px;
+    }
+
+    .tooltip-icon:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+
+
+    select, input[type=range] {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.4rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-right: 10px;
+    }
+    span[id$="-value"] {
+      font-weight: bold;
+      color: #1e3a8a;
+      margin-left: 5px;
+    }
+    button {
+      background: #0077ff;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.2rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #005fcc;
+    }
+    h2, h3 {
+      color: #1e3d7b;
+    }
+    .result-box {
+      background: #eef6ff;
+      padding: 1rem;
+      border-radius: 12px;
+      margin-top: 1.5rem;
+      border-left: 5px solid #0077ff;
+    }
+    iframe {
+      margin-top: 1rem;
+    }
+    .transport-anim {
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 150px;
+      height: 150px;
+      background-image: url('https://img.icons8.com/clouds/100/bicycle.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: float 3s ease-in-out infinite;
+      opacity: 0.7;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="transport-anim"></div>
+    <h1><option value="" disabled selected style="color: #022057; font-family: 'Arial'; font-weight: bold;">TOPSIS Route Finder (KGP Edition)</option></h1>
+    <p class="subheading-text">
+      Rank your routes based on distance, time, safety, traffic, and more using the TOPSIS algorithm. Choose your hall, customize preferences, and find your best way!
+    </p>
+    <label for="From Hall"><i class="fas fa-bed"></i><option value="" disabled selected style="color: #00153c; font-family: 'Arial'; font-weight: bold;"> Select Hall: </option></label>
+    <select id="from_hall">
+      <option>Azad</option>
+      <option>Patel</option>
+      <option>RK</option>
+      <option>LLR</option>
+      <option>Nehru</option>
+      <option>VS</option>
+      <option>MS</option>
+      <option>HJB</option>
+      <option>BCR</option>
+      <option>JCB</option>
+      <option>SNIG</option>
+      <option>SNVH</option>
+      <option>MT</option>
+      <option>RP</option>
+      <option>MMM</option>
+      <option>LBS</option>
+    </select>
+
+    <label for="Destination"><i class="fas fa-map-marker-alt"></i><option value="" disabled selected style="color: #00153c; font-family: 'Arial'; font-weight: bold;"> Select Destination: </option></label>
+    <select id="destination">
+      <option>Tech Market</option>
+      <option>Main Building</option>
+      <option>Gymkhana</option>
+      <option>Nalanda Complex</option>
+    </select>
+
+    <h3><i class="fas fa-balance-scale"></i> Assign Importance (Weights):</h3>
+    <label><i class="fas fa-shield-alt"></i> Safety <span class="tooltip-icon">
+      <i class="fas fa-info-circle"></i>
+      <span class="tooltip-text">
+        How well-lit, busy or risky the route is (stray dogs, unsafe crossings, etc.)
+      </span>
+    </span></label>
+    <input type="range" id="safety" min="0" max="1" step="0.1" value="0.3">
+
+    <label for="time"><i class="fas fa-stopwatch"></i> Time
+      <span class="tooltip-icon">
+        <i class="fas fa-info-circle"></i>
+        <span class="tooltip-text">
+          How long the route typically takes, considering average speed and signals.
+        </span>
+      </span>
+    </label>
+    <input type="range" id="time" min="0" max="1" step="0.1" value="0.2">
+    
+    <label for="distance"><i class="fas fa-ruler-horizontal"></i> Distance
+      <span class="tooltip-icon">
+        <i class="fas fa-info-circle"></i>
+        <span class="tooltip-text">
+          Total length of the route from start to destination in kilometers.
+        </span>
+      </span>
+    </label>
+    <input type="range" id="distance" min="0" max="1" step="0.1" value="0.2">
+    
+    <label for="traffic"><i class="fas fa-traffic-light"></i> Traffic
+      <span class="tooltip-icon">
+        <i class="fas fa-info-circle"></i>
+        <span class="tooltip-text">
+          How congested the route usually is — higher traffic means more delays.
+        </span>
+      </span>
+    </label>
+    <input type="range" id="traffic" min="0" max="1" step="0.1" value="0.1">
+    
+    <label for="road_quality"><i class="fas fa-road"></i> Road Quality
+      <span class="tooltip-icon">
+        <i class="fas fa-info-circle"></i>
+        <span class="tooltip-text">
+          Condition of the roads — potholes, narrow paths, uneven surfaces, etc.
+        </span>
+      </span>
+    </label>
+    <input type="range" id="road_quality" min="0" max="1" step="0.1" value="0.2">
+
+    <button onclick="getBestRoute()">Get Best Route</button>
+
+    <div class="result-box" id="result"></div>
+    <div id="note-message" style="margin-top: 10px; font-weight: bold; color: #007bff;"></div>
+    <canvas id="chart" height="150"></canvas>
+  </div>
+
+  <script>
+    async function getBestRoute() {
+      const from_hall = document.getElementById('from_hall').value;
+      const destination = document.getElementById('destination').value;
+  
+      const weights = [
+        parseFloat(document.getElementById('safety').value),
+        parseFloat(document.getElementById('time').value),
+        parseFloat(document.getElementById('distance').value),
+        parseFloat(document.getElementById('traffic').value),
+        parseFloat(document.getElementById('road_quality').value)
+      ];
+      function updateWeight(id) {
+        const value = document.getElementById(id).value;
+        document.getElementById(`${id}-value`).textContent = value;
+      }
+
+      const response = await fetch('/get_best_route', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          from_hall: from_hall,
+          destination: destination,
+          weights: weights
+        })
+      });
+  
+      const data = await response.json();
+      const outputDiv = document.getElementById('result');
+      const noteDiv = document.getElementById('note-message'); // Reference to the note div
+  
+      outputDiv.innerHTML = '';
+      noteDiv.textContent = ''; // Clear old notes
+  
+      if (response.ok) {
+        // Check for a note
+        if (data.length > 0 && data[0].Note) {
+          noteDiv.textContent = data[0].Note;
+        }
+  
+        outputDiv.innerHTML += `<h3>Best Route(s):</h3>`;
+        data.forEach(route => {
+          outputDiv.innerHTML += `
+            <p><i class="fas fa-route"></i> Route: ${route['Route']}<br>
+            <i class="fas fa-star-half-alt"></i> Score: ${route['Topsis Score'].toFixed(4)}<br>
+            <i class="fas fa-medal"></i> Rank: ${route['Rank']}</p><hr>
+          `;
+        });
+        const hallNameFixes = {
+        'SNIG': 'SN Hall Nescafe, IIT Kharagpur',
+        'Nehru': 'Nehru Hall of Residence, IIT Kharagpur',
+        'BRH': 'BC Roy Hall of Residence, IIT Kharagpur',
+        'MT': 'Mother Teresa Hall of Residence, IIT KGP'
+      };
+
+      const fixedStart = hallNameFixes[from_hall] || from_hall;
+      const fixedDestination = hallNameFixes[destination] || destination;
+        // Google Maps Embed
+        const mapFrame = document.createElement('iframe');
+        mapFrame.width = '100%';
+        mapFrame.height = '400';
+        mapFrame.style.border = '0';
+        mapFrame.style.borderRadius = '16px';
+        mapFrame.loading = 'lazy';
+        mapFrame.allowFullscreen = true;
+        mapFrame.src = `https://www.google.com/maps/embed/v1/directions?key=AIzaSyAWL0h3aFRHDr7RE7N52F7jEx7u36rDglo&origin=${encodeURIComponent(fixedStart)}, IIT Kharagpur&destination=${encodeURIComponent(fixedDestination)}, IIT Kharagpur&mode=walking`;
+        outputDiv.appendChild(mapFrame);
+  
+      } else {
+        outputDiv.innerHTML = `<p style="color: red;">${data.error || 'Something went wrong.'}</p>`;
+      }
+    }
+  </script>
+</body>
+</html>  
