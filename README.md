@@ -1,8 +1,7 @@
 # 🚦 Smart Route Ranking System using TOPSIS  
-A transportation decision-making web app built for IIT Kharagpur, ranking routes based on user-defined preferences like time, traffic, safety, cost, and distance.  
+A decision-support transportation intelligence system for IIT Kharagpur that ranks routes using user-defined preferences across safety, traffic, road quality, distance, and travel time.
 
 ## 📌 Overview
-
 This project implements a decision-support route recommendation system for IIT Kharagpur campus navigation.
 Instead of optimizing only for shortest distance or travel time, the system models routing as a multi-criteria decision-making (MCDM) problem, incorporating safety, traffic, road quality, travel time, and distance simultaneously.
 
@@ -14,7 +13,6 @@ to generate personalized, preference-aware route recommendations.
 ---
 
 ## 🧠 Problem Motivation
-
 Traditional routing systems optimize a single objective (typically distance or time).
 However, real-world route choice often depends on multiple competing factors such as:
 - Safety (especially night-time movement)
@@ -121,37 +119,19 @@ Core decision logic is separated into a reusable pipeline module route_ml_pipeli
 
 ---
 
-## 🧠 How It works
-1.🧍 User selects a starting point, destination, and adjusts weights for factors like time, cost, safety, etc.
-2.🖥️ Frontend sends this input to the Flask backend.
-3.📊 The backend first validates route feasibility using a lightweight campus connectivity graph (NetworkX).
-This simulates real-world navigation pipelines where graph traversal ensures route connectivity before optimization.
-4. 📚 Candidate Route Extraction from Dataset
-The backend filters feasible route alternatives from a structured dataset containing route attributes:
-- Safety score
-- Distance
-- Travel time
-- Traffic level
-- Road quality
-5. 🌙 Context-Aware Feature Adjustment (Optional)
-If a context mode is enabled (e.g., night travel, rain conditions, rush hour), the system dynamically adjusts feature values before ranking.
-Example:
-- Night → safety importance increased
-- Rain → road quality importance increased
-- Rush hour → traffic penalty increased
-6. 🧮 Multi-Criteria Ranking via TOPSIS
-The filtered and context-adjusted routes are ranked using the TOPSIS multi-criteria decision algorithm.
-Routes are scored based on distance from ideal and worst-case decision solutions.
-7️. 🚀 Recommendation Output Generation
-The backend returns ranked routes, including:
-- Route name
-- TOPSIS score
-- Rank
-8️. 🗺️ Interactive Route Visualization
-The frontend uses the Google Maps JavaScript API to visualize selected routes and display ranking results interactively.
----
+## 🧠 How It Works
+1️. User selects source, destination, and preference weights
+2️. Frontend sends input to Flask backend
+3️. Backend validates route feasibility using campus graph
+4️. Candidate routes extracted from structured dataset
+5️. Context-based feature adjustment applied (optional)
+6️. Routes ranked using TOPSIS
+7️. Ranked routes returned to frontend
+8️. Google Maps API visualizes recommended route(s)
 
-### 🧪 Example Use Case
+----
+
+## 🧪 Example Use Case
 
 Scenario:
 User prioritizes safety during night travel.
