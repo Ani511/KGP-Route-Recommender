@@ -23,7 +23,7 @@ However, real-world route choice often depends on multiple competing factors suc
 This project reframes routing as a decision-support optimization problem, where users define preference weights across criteria, and the system ranks feasible routes accordingly.
 ---
 ## 🏗 System Architecture
-
+```
 The system follows a hybrid pipeline:
 Graph Feasibility Check (NetworkX)
 ↓
@@ -34,10 +34,10 @@ Context-Aware Feature Adjustment (Night / Rain / Rush Hour)
 TOPSIS Multi-Criteria Decision Ranking
 ↓
 Final Route Recommendation
-
+```
 ----
 ## 🔬 Methodology
-###1️⃣ Graph-Assisted Candidate Route Selection
+### 1️⃣ Graph-Assisted Candidate Route Selection
 A lightweight campus connectivity graph is modeled using NetworkX.
 The graph is used to validate route feasibility and simulate path connectivity before ranking candidate routes.
 - This step mimics real-world navigation pipeline stages where:
@@ -120,7 +120,7 @@ Core decision logic is separated into a reusable pipeline module route_ml_pipeli
 ---
 
 ## 🧠 How It Works
-1️. User selects source, destination, and preference weights
+1. User selects source, destination, and preference weights
 2️. Frontend sends input to Flask backend
 3️. Backend validates route feasibility using campus graph
 4️. Candidate routes extracted from structured dataset
@@ -128,7 +128,6 @@ Core decision logic is separated into a reusable pipeline module route_ml_pipeli
 6️. Routes ranked using TOPSIS
 7️. Ranked routes returned to frontend
 8️. Google Maps API visualizes recommended route(s)
-
 ----
 
 ## 🧪 Example Use Case
