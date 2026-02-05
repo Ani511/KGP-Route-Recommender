@@ -23,8 +23,8 @@ However, real-world route choice often depends on multiple competing factors suc
 This project reframes routing as a decision-support optimization problem, where users define preference weights across criteria, and the system ranks feasible routes accordingly.
 ---
 ## 🏗 System Architecture
-```
 The system follows a hybrid pipeline:
+```
 Graph Feasibility Check (NetworkX)
 ↓
 Candidate Route Extraction (Dataset Alternatives)
@@ -120,14 +120,14 @@ Core decision logic is separated into a reusable pipeline module route_ml_pipeli
 ---
 
 ## 🧠 How It Works
-1. User selects source, destination, and preference weights
-2️. Frontend sends input to Flask backend
-3️. Backend validates route feasibility using campus graph
-4️. Candidate routes extracted from structured dataset
-5️. Context-based feature adjustment applied (optional)
-6️. Routes ranked using TOPSIS
-7️. Ranked routes returned to frontend
-8️. Google Maps API visualizes recommended route(s)
+- User selects source, destination, and preference weights
+-  Frontend sends input to Flask backend
+-  Backend validates route feasibility using campus graph
+-  Candidate routes extracted from structured dataset
+-  Context-based feature adjustment applied
+-  Routes ranked using TOPSIS
+-  Ranked routes returned to frontend
+-  Google Maps API visualizes recommended route(s)
 ----
 
 ## 🧪 Example Use Case
