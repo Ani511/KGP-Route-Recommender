@@ -18,12 +18,12 @@ def serve_frontend():
 def get_best_route():
     data = request.json
 
-    # Ensure correct key names (matching your frontend JS)
+    # Ensuring correct key names
     start = data['from_hall']
     destination = data['destination']
     weights = data['weights']  # [safety, time, distance, traffic, road_quality]
 
-    # Filter relevant routes
+    # Filtering relevant routes
     filtered_df = df[
         (df['From Hall'] == start) &
         (df['Destination'] == destination)
@@ -34,7 +34,7 @@ def get_best_route():
 
     ranked_df = run_topsis(filtered_df, weights)
 
-    # Convert to list of dicts
+    # Converting to list of dicts
     results = ranked_df.to_dict(orient='records')
     return jsonify(results)
 
