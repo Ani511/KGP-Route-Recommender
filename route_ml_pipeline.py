@@ -4,9 +4,7 @@ import networkx as nx
 from topsis import run_topsis
 
 
-# ---------------------------
 # Candidate Route Generation
-# ---------------------------
 def generate_candidate_routes(df, source, destination, graph=None):
 
     # Graph feasibility check
@@ -25,9 +23,7 @@ def generate_candidate_routes(df, source, destination, graph=None):
     return candidates
 
 
-# ---------------------------
 # Context Modifiers
-# ---------------------------
 def apply_context_modifiers(route_df, context=None):
 
     df_mod = route_df.copy()
@@ -47,9 +43,7 @@ def apply_context_modifiers(route_df, context=None):
     return df_mod
 
 
-# ---------------------------
 # TOPSIS Ranking Wrapper
-# ---------------------------
 def rank_routes_topsis(route_df, weights_dict):
 
     working_df = route_df.copy()
@@ -76,9 +70,7 @@ def rank_routes_topsis(route_df, weights_dict):
     return result_df
 
 
-# ---------------------------
-# Master Recommendation Pipeline
-# ---------------------------
+# Recommendation Pipeline
 def recommend_route(
     df,
     source,
