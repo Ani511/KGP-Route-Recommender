@@ -1,7 +1,7 @@
-# 🚦 Smart Route Ranking System using TOPSIS  
+#  Smart Route Ranking System using TOPSIS  
 A decision-support transportation intelligence system for IIT Kharagpur that ranks routes using user-defined preferences across safety, traffic, road quality, distance, and travel time.
 
-## 📌 Overview
+##  Overview
 This project implements a decision-support route recommendation system for IIT Kharagpur campus navigation.
 Instead of optimizing only for shortest distance or travel time, the system models routing as a multi-criteria decision-making (MCDM) problem, incorporating safety, traffic, road quality, travel time, and distance simultaneously.
 
@@ -12,7 +12,7 @@ The system combines:
 to generate personalized, preference-aware route recommendations.
 ---
 
-## 🧠 Problem Motivation
+##  Problem Motivation
 Traditional routing systems optimize a single objective (typically distance or time).
 However, real-world route choice often depends on multiple competing factors such as:
 - Safety (especially night-time movement)
@@ -22,7 +22,7 @@ However, real-world route choice often depends on multiple competing factors suc
 - Physical distance
 This project reframes routing as a decision-support optimization problem, where users define preference weights across criteria, and the system ranks feasible routes accordingly.
 ---
-## 🏗 System Architecture
+## System Architecture
 The system follows a hybrid pipeline:
 ```
 Graph Feasibility Check (NetworkX)
@@ -36,7 +36,7 @@ TOPSIS Multi-Criteria Decision Ranking
 Final Route Recommendation
 ```
 ----
-## 🔬 Methodology
+##  Methodology
 ### 1️⃣ Graph-Assisted Candidate Route Selection
 A lightweight campus connectivity graph is modeled using NetworkX.
 The graph is used to validate route feasibility and simulate path connectivity before ranking candidate routes.
@@ -62,7 +62,7 @@ TOPSIS works by:
 - Ranking routes based on closeness to optimal decision point
 This enables balanced optimization across competing routing factors.
 ---
-## ⚙️ Core Features
+##  Core Features
 #### Personalized Route Ranking
 Users define importance weights across criteria:
 - Safety
@@ -80,14 +80,14 @@ Combines structural route feasibility with decision-theoretic ranking.
 #### Modular ML Pipeline
 Core decision logic is separated into a reusable pipeline module route_ml_pipeline.py
 
-## 🔧 Tech Stack
+##  Tech Stack
 
-### 🖥️ Frontend
+###  Frontend
 - HTML5, CSS3
 - JavaScript
 - Google Maps JavaScript API
 
-### ⚙️ Backend
+###  Backend
 - Python 3.x
 - Flask
 ### ML / Decision Layer
@@ -98,7 +98,7 @@ Core decision logic is separated into a reusable pipeline module route_ml_pipeli
 
 ---
 
-## ⚙️ Setup Instructions
+##  Setup Instructions
 
 1. Clone the Repository  
 2. Setup Python Environment  
@@ -106,7 +106,7 @@ Core decision logic is separated into a reusable pipeline module route_ml_pipeli
 4. Run the Flask Server  
 5. Open in Browser  
 ---
-## 📘 Project Structure
+##  Project Structure
 ```
 ├── frontend/
 │   └── index.html
@@ -119,7 +119,7 @@ Core decision logic is separated into a reusable pipeline module route_ml_pipeli
 
 ---
 
-## 🧠 How It Works
+##  How It Works
 - User selects source, destination, and preference weights
 -  Frontend sends input to Flask backend
 -  Backend validates route feasibility using campus graph
@@ -130,7 +130,7 @@ Core decision logic is separated into a reusable pipeline module route_ml_pipeli
 -  Google Maps API visualizes recommended route(s)
 ----
 
-## 🧪 Example Use Case
+##  Example Use Case
 
 Scenario:
 User prioritizes safety during night travel.
@@ -141,7 +141,7 @@ Pipeline Flow:
 - TOPSIS ranks routes based on updated preferences
 ----
 
-### 🎯 Learning Outcomes
+###  Learning Outcomes
 
 This project demonstrates:
 - Applied multi-criteria optimization
